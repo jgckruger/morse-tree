@@ -10,6 +10,10 @@ class Tree:
         for letters, morse in letters.items():
             self.root.insert(morse)
 
+    def find(self, letter):
+        # TODO: Implement find function
+        return ''
+
     def visit_preorder(self):
         self.root.visit('PREORDER')
 
