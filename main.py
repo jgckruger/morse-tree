@@ -1,8 +1,6 @@
-import json
-from classes.node import Node
+from classes.tree import Tree
 
-letters = json.load(open('./letters.json'))
-
-for i in enumerate(letters):
-
-a = Node()
+tree = Tree()
+tree.visit_preorder()
+tree.visit_inorder()
+tree.visit_postorder()

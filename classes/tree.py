@@ -1,18 +1,31 @@
+import json
 from classes.node import Node
 
 class Tree:
     root = None
 
     def __init__(self, root = None):
-        root = root
+        self.root = Node()
+        letters = json.load(open('./letters.json'))
+        for letters, morse in letters.items():
+            self.root.insert(morse)
 
-    def preorder(self):
+    def visit_preorder(self):
+        self.root.visit('PREORDER')
+
+    def visit_inorder(self):
+        self.root.visit('INORDER')
+
+    def visit_postorder(self):
+        self.root.visit('POSTORDER')
+
+    def print_preorder(self):
         pass
 
-    def inorder(self):
+    def print_inorder(self):
         pass
 
-    def postorder(self):
+    def print_postorder(self):
         pass
 
     def parse(self, letters):
