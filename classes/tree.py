@@ -11,8 +11,7 @@ class Tree:
             self.root.insert(morse)
 
     def find(self, letter):
-        # TODO: Implement find function
-        return ''
+        return self.root.find(letter)
 
     def visit_preorder(self):
         self.root.visit('PREORDER')

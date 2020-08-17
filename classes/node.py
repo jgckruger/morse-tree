@@ -18,6 +18,17 @@ class Node:
 
         self.calculate_letter()
 
+    def find(self, morse, pos = 0):
+        if pos == len(morse):
+            return self.letter
+        else:
+            next_code = morse[pos]
+            if next_code == '.' and self.left:
+                return self.left.find(morse, pos+1)
+            elif next_code == '-' and self.right:
+                return self.right.find(morse, pos+1)
+        return ""
+
     def insert(self, morse, pos = -1):
         if (pos+1) < len(morse):
             next_code = morse[pos+1]
