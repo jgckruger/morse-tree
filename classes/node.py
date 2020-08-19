@@ -105,9 +105,13 @@ class Node:
         """
         str_ = ""
         for i in range(self.pos):
-            str_ += "|{:^7}".format("")
-        aux = self.morse if self.letter == '' else self.letter
-        str_ += "->{:^7}".format(aux)
+            str_ += "│{:7}".format("")
+        
+        #aux = self.morse if self.letter == '' else None
+        if obj_dad == None:
+            str_ += "[{}]".format("root")
+        else:
+            str_ += "└>[{}]".format(None if self.letter == '' else self.letter )
         print(str_)
 
     def __str__(self):

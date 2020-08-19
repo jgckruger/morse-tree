@@ -4,8 +4,8 @@ tree = Tree()
 #tree.visit_preorder()
 #tree.visit_inorder()
 #tree.visit_postorder()
-#tree.print_preorder()
-tree.print_inorder()
+tree.print_preorder()
+#tree.print_inorder()
 #tree.print_postorder()
 
 # TODO: optionally read file from parameter
