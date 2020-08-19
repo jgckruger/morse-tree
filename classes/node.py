@@ -70,8 +70,45 @@ class Node:
                 self.right.visit(order)
             self.process()
 
+    def visit_save(self, order, letter_father):
+        if order == 'PREORDER':
+            self.process2(letter_father)
+            if self.left is not None: 
+                self.left.visit_save(order, self)
+            if self.right is not None: 
+                self.right.visit_save(order, self)
+        elif order == 'INORDER':
+            if self.left is not None: 
+                self.left.visit_save(order, self)
+            self.process2(letter_father)
+            if self.right is not None: 
+                self.right.visit_save(order, self)
+        elif order == 'POSTORDER':
+            if self.left is not None: 
+                self.left.visit_save(order, self)
+            if self.right is not None: 
+                self.right.visit_save(order, self)
+            self.process2(letter_father)
+
+
     def process(self):
         print(self)
+
+    def process2(self, obj_dad):
+        """ 
+        if not obj_dad == None:
+            var_1 = self.morse if self.letter == '' else self.letter
+            var_2 = obj_dad.morse if obj_dad.letter == '' else obj_dad.letter
+            config.edges.append([var_2, var_1])
+
+        print(self.pos)
+        """
+        str_ = ""
+        for i in range(self.pos):
+            str_ += "|{:^7}".format("")
+        aux = self.morse if self.letter == '' else self.letter
+        str_ += "->{:^7}".format(aux)
+        print(str_)
 
     def __str__(self):
         return self.letter

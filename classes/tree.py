@@ -23,13 +23,13 @@ class Tree:
         self.root.visit('POSTORDER')
 
     def print_preorder(self):
-        pass
+        self.root.visit_save('PREORDER', None)
 
     def print_inorder(self):
-        pass
+        self.root.visit_save('INORDER', None)
 
     def print_postorder(self):
-        pass
+        self.root.visit_save('POSTORDER', None)
 
     def parse(self, letters):
         pass
