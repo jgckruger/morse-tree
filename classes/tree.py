@@ -12,7 +12,7 @@ class Tree:
             self.root.insert(morse)
 
     def find(self, letter):
-        return self.root.find(letter)
+        return self.root.find(letter, [])
 
     def visit_preorder(self):
         self.root.visit('PREORDER')

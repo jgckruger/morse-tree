@@ -5,7 +5,7 @@ tree = Tree()
 #tree.visit_preorder()
 #tree.visit_inorder()
 #tree.visit_postorder()
-tree.print_preorder()
+#tree.print_preorder()
 #tree.print_inorder()
 #tree.print_postorder()
 
@@ -23,7 +23,8 @@ with open(filepath) as fp:
         letters = line.split(' ')
         morse_codes = []
         for letter in letters:
-            morse = tree.find(letter.strip())
+            morse, caminho = tree.find(letter.strip())
+            print("Caminho letra {}: {}".format(morse, " -> ".join(caminho)))
             morse_codes.append(morse)
         morse_word = ''.join(morse_codes)
         final_translate += morse_word + " "

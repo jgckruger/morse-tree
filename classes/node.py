@@ -19,15 +19,16 @@ class Node:
 
         self.calculate_letter()
 
-    def find(self, morse, pos = 0):
+    def find(self, morse, caminho, pos = 0):
+        caminho.append('['+str(self.morse)+']')
         if pos == len(morse):
-            return self.letter
+            return self.letter, caminho
         else:
             next_code = morse[pos]
             if next_code == '.' and self.left:
-                return self.left.find(morse, pos+1)
+                return self.left.find(morse, caminho, pos+1)
             elif next_code == '-' and self.right:
-                return self.right.find(morse, pos+1)
+                return self.right.find(morse, caminho, pos+1)
         return ""
 
     def insert(self, morse, pos = -1):
