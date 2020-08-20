@@ -1,4 +1,5 @@
 import json
+import config
 
 class Node:
     left = None
@@ -72,7 +73,7 @@ class Node:
 
     def visit_save(self, order, letter_father):
         if order == 'PREORDER':
-            self.process2(letter_father)
+            self.process3(letter_father)
             if self.left is not None: 
                 self.left.visit_save(order, self)
             if self.right is not None: 
@@ -95,24 +96,26 @@ class Node:
         print(self)
 
     def process2(self, obj_dad):
-        """ 
-        if not obj_dad == None:
-            var_1 = self.morse if self.letter == '' else self.letter
-            var_2 = obj_dad.morse if obj_dad.letter == '' else obj_dad.letter
-            config.edges.append([var_2, var_1])
-
-        print(self.pos)
-        """
         str_ = ""
         for i in range(self.pos):
             str_ += "│{:7}".format("")
         
-        #aux = self.morse if self.letter == '' else None
         if obj_dad == None:
             str_ += "[{}]".format("root")
         else:
-            str_ += "└>[{}]".format(None if self.letter == '' else self.letter )
+            str_ += "└>[{}]".format(None if self.letter == '' else self.letter)
         print(str_)
+
+    def process3(self, obj_dad):
+        for i in range(self.pos+1):
+            config.preorder_print_matrix[config.row][i] = "│{:7}".format("")
+        if obj_dad == None:
+            config.preorder_print_matrix[config.row][self.pos] = "[{}]".format("root")
+        else:
+            config.preorder_print_matrix[config.row][self.pos+1] = "└>[{}]".format(None if self.letter == '' else self.letter )
+        
+        config.row += 1
+
 
     def __str__(self):
         return self.letter

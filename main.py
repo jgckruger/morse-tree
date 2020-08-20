@@ -1,5 +1,6 @@
 from classes.tree import Tree
 import sys
+
 tree = Tree()
 #tree.visit_preorder()
 #tree.visit_inorder()
@@ -29,3 +30,5 @@ with open(filepath) as fp:
         line = fp.readline()
 
 print(final_translate)
+
+
