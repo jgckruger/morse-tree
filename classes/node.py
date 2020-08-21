@@ -20,7 +20,7 @@ class Node:
         self.calculate_letter()
 
     def find(self, morse, caminho, pos = 0):
-        caminho.append('['+str(self.morse)+']')
+        caminho.append('['+str(self.morse)+ ' : '+ str(self.letter) + ']')
         if pos == len(morse):
             return self.letter, caminho
         else:
@@ -104,7 +104,7 @@ class Node:
         if obj_dad == None:
             str_ += "[{}]".format("root")
         else:
-            str_ += "└>[{}]".format(None if self.letter == '' else self.letter)
+            str_ += "└>[{}]".format(None if self.letter == '' else self.letter + " : " + self.morse)
         print(str_)
 
     def process3(self, obj_dad):
@@ -113,7 +113,7 @@ class Node:
         if obj_dad == None:
             config.preorder_print_matrix[config.row][self.pos] = "[{}]".format("root")
         else:
-            config.preorder_print_matrix[config.row][self.pos+1] = "└>[{}]".format(None if self.letter == '' else self.letter )
+            config.preorder_print_matrix[config.row][self.pos+1] = "└>[{}]".format(None if self.letter == '' else self.letter + " : " + self.morse)
         
         config.row += 1
 
